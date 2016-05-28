@@ -31,6 +31,11 @@ public class AlloyInhibitData {
         }
     }
 
+    public static void removeSmeltery(TileSmeltery theSmeltery) {
+        if(dataMap.containsKey(theSmeltery))
+            dataMap.remove(theSmeltery);
+    }
+
 
     private TileSmeltery owningTile;
 
@@ -58,4 +63,5 @@ public class AlloyInhibitData {
             }
         }
     }
+
 }
