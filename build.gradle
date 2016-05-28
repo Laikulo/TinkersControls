@@ -27,6 +27,9 @@ minecraft {
     // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = "snapshot_20160312"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+    // Use upstream Access Transformers, so runClient/debugClient work
+    useDepAts = true
 }
 
 repositories {
@@ -62,5 +65,14 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+jar {
+    manifest{
+        attributes(
+                "FMLCorePluginContainsFMLMod": "true",
+                "FMLCorePlugin":"guru.haun.tcon.controls.TControlsLoadingPlugin"
+        )
     }
 }

@@ -1,0 +1,8 @@
+Smelterys alloy every 4th tick
+
+Tcon's Tile Smeltery has a method called alloyAlloys, this starts with a foreach, we want to inject into that foreach,
+and continue if the alloy recipie on our list is allowed. A possibly better method is to replace the collection that
+contains all recipies to contain only the ones we want.
+
+Tcon smeltery parts all extend TileSmelteryComponent, so we need to as well, or it may not be recongnized
+as a smeltery part
