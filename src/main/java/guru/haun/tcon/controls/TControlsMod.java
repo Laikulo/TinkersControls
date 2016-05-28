@@ -1,6 +1,5 @@
 package guru.haun.tcon.controls;
 
-import guru.haun.tcon.controls.block.BlockSmelteryAlloyInhibitor;
 import guru.haun.tcon.controls.util.SmelteryUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -19,16 +18,21 @@ import scala.actors.threadpool.Arrays;
 @Mod(modid = "tcontrols", useMetadata = true)
 public class TControlsMod {
 
-    private BlockSmelteryAlloyInhibitor smelteryAlloyInhibitor;
-    private ItemBlock smelteryAlloyInhibitorItem;
+    @Mod.Instance("tcontrols")
+    private static TControlsMod INSTANCE;
+
+    public Block smelteryAlloyInhibitor;
+    public ItemBlock smelteryAlloyInhibitorItem;
 
     @Mod.EventHandler
-    public void onPreInit(FMLPreInitializationEvent e){
+    public void onPreInit(FMLPreInitializationEvent e) {
 
         //instantiate blocks
-        smelteryAlloyInhibitor = new BlockSmelteryAlloyInhibitor(Material.rock, MapColor.grayColor);
+        smelteryAlloyInhibitor = new Block(Material.rock, MapColor.grayColor);
         smelteryAlloyInhibitorItem = new ItemBlock(smelteryAlloyInhibitor);
-        smelteryAlloyInhibitorItem.setRegistryName(smelteryAlloyInhibitor.getRegistryName());
+        smelteryAlloyInhibitor.setUnlocalizedName("alloyInhibitor");
+        smelteryAlloyInhibitor.setRegistryName("alloyInhibitor");
+        smelteryAlloyInhibitorItem.setRegistryName("alloyInhibitor");
 
         smelteryAlloyInhibitorItem.setCreativeTab(CreativeTabs.tabBlock);
 
@@ -39,12 +43,17 @@ public class TControlsMod {
     }
 
     @Mod.EventHandler
-    public void onInit(FMLInitializationEvent e){
+    public void onInit(FMLInitializationEvent e) {
         //Fudge blocks into Smeltery Valid list
         SmelteryUtil.addValidSmelteryBlock(
-                Arrays.asList(new Block[] {
+                Arrays.asList(new Block[]{
                         smelteryAlloyInhibitor
                 })
         );
     }
+
+    public static TControlsMod getInstance() {
+        return INSTANCE;
+    }
+
 }

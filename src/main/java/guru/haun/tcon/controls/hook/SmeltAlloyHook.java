@@ -1,9 +1,8 @@
 package guru.haun.tcon.controls.hook;
 
-import slimeknights.tconstruct.library.TinkerRegistry;
+import guru.haun.tcon.controls.alloying.AlloyInhibitData;
 import slimeknights.tconstruct.smeltery.tileentity.TileSmeltery;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,10 +10,6 @@ import java.util.List;
  */
 public class SmeltAlloyHook {
     public static List getAlloys(TileSmeltery theSmeltery){
-        if(true) {
-            return TinkerRegistry.getAlloys();
-        }else{
-            return new ArrayList();
-        }
+        return AlloyInhibitData.get(theSmeltery).getAlloys();
     }
 }
