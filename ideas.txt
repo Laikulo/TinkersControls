@@ -1,0 +1,25 @@
+
+Alloy Inhibiter
+ - When built into a smeltery, allows will not form
+
+Redstone Alloy Inhibiter
+ - As above, but only when redstone applied
+
+Selective Alloy Inhibiter
+ - As Alloy Inhibitor, but allows selected alloys
+
+Computerized Alloy Inhbiter
+ - As above, but can be controled by CC/OC computers
+
+
+Advanced Smeltery Drain
+ - A drain that will auto-eject a set amount of fluid upon redstone pulse, but only if so much of the current fluid is in the tank.
+
+Computerized Fluid Channels
+ - When signaled by a computer, can rearainge the fluids in a smeltery
+
+Smeltery Chute
+ - Provides another access to the smelterys input inventory
+
+Advanced Smeltery Chute
+ - As above, but pulls for ajacent inventories
